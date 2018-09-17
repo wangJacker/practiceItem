@@ -79,6 +79,7 @@
           awesome-vue
         </a>
       </li>
+      <li class="test">这是个测试的小玩意儿</li>
     </ul>
   </div>
 </template>
@@ -96,6 +97,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.test{
+  font-size: 30px;
+  line-height: 60px;
+  margin-top: 40px;
+}
 h1, h2 {
   font-weight: normal;
 }
