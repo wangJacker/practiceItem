@@ -6,6 +6,7 @@ import router from './router';
 import 'lib-flexible/flexible';
 import "@/base/css/app.less";
 
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
