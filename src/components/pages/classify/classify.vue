@@ -10,6 +10,14 @@
                 </ul>
             </div>
             <div class="content_r">
+                <ul class="classify_list">
+                    <li class="item">
+                        <div class="sizing">
+                            <img src="https://via.placeholder.com/64x64" alt="">
+                            <p>蜂蜜蜂蜜蜂蜜蜂蜜蜂蜜</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
         <foot-bar :selectClassify="true"></foot-bar>
@@ -19,6 +27,7 @@
 import Header from "@/components/common/navbar";
 import footBar from "@/components/common/footbar";
 import BScroll from "better-scroll";
+import{data} from "@/mock/mockData";
 export default {
     name: "classify",
     components: { Header, footBar },
@@ -40,6 +49,7 @@ export default {
             });
             this.scrollContainer = this.$refs.scrolls.clientHeight;
             this.maxScrollY = this.scroll.maxScrollY;
+            console.log(data.foods)
         })
     },
     computed: {
@@ -76,13 +86,14 @@ export default {
 #app {
     .wrapper {
         .section {
-            padding: 8px 0 0 0;
+            padding: 8px 12px;
             display: flex;
             justify-content: space-between;
             overflow: hidden;
             .menu_l {
                 width: 80px;
                 overflow: hidden;
+                position: relative;
                 li {
                     width: inherit;
                     height: 40px;
@@ -104,6 +115,9 @@ export default {
                         overflow: hidden;
                     }
                 }
+                li:first-child {
+                    margin-top: 0;
+                }
                 .select {
                     background: #AE2309;
                     span {
@@ -111,8 +125,37 @@ export default {
                     }
                 }
             }
-            li:first-child {
-                margin-top: 0;
+            .content_r {
+                flex: 1;
+                margin-left: 2px;
+                background: #fff;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                .classify_list {
+                    padding: 0 16px;
+                    overflow: hidden;
+                    .item {
+                        margin-left: 22px;
+                        margin-top: 24px;
+                        float: left;
+                        .sizing {
+                            img {
+                                display: block;
+                                width: 64px;
+                                height: 64px;
+                            }
+                            p {
+                                font-size: 12px;
+                                color: #351009;
+                                width: 64px;
+                                line-height: 17px;
+                                height: 34px;
+                                overflow: hidden;
+                                margin-top: 8px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
         <Header></Header>
-        <section>
-            <Carousel></Carousel>
+        <section ref="scrolled">
+            <Carousel :imgArray="carrousel"></Carousel>
             <ul class="nav">
                 <li class="navItem">
                     <a href="javascript:void(0)"><img src="../../../base/images/jd.png"></a>
@@ -24,31 +24,13 @@
             <div class="goods_container">
                 <h3 class="title">热销单品</h3>
                 <ul class="goods_list">
-                    <li class="goods_item">
-                        <img src="https://via.placeholder.com/145x145">
-                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
-                        <b class="price">399.00</b>
-                    </li>
-                    <li class="goods_item">
-                        <img src="https://via.placeholder.com/145x145">
-                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
-                        <b class="price">399.00</b>
-                    </li>
-                    <li class="goods_item">
-                        <img src="https://via.placeholder.com/145x145">
-                        <h3>超柔全棉超柔全风浴巾(单面纱单面绒)</h3>
-                        <b class="price">399.00</b>
-                    </li>
-                    <li class="goods_item">
-                        <img src="https://via.placeholder.com/145x145">
-                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
-                        <b class="price">399.00</b>
-                    </li>
-                    <li class="goods_item">
-                        <img src="https://via.placeholder.com/145x145">
-                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
-                        <b class="price">399.00</b>
-                    </li>
+                    <template v-for="(item,index) in goodsArray">
+                        <li class="goods_item">
+                            <img :src="item.src">
+                            <h3>{{item.name}}</h3>
+                            <b class="price">{{item.price}}</b>
+                        </li>
+                    </template>
                 </ul>
             </div>
         </section>
@@ -59,9 +41,25 @@
 import Header from "@/components/common/navbar";
 import Carousel from "@/components/common/carousel";
 import footBar from "@/components/common/footbar";
+import { carrouselData, goodsData } from "@/mock/mockData";
 export default {
     name: "index",
     components: { Header, Carousel, footBar },
+    data() {
+        return {
+            // 轮播图的信息
+            carrousel: [],
+            // goodsData商品信息
+            goodsArray: []
+        }
+    },
+    created() {
+        this.carrousel = carrouselData.imgData;
+        this.goodsArray = goodsData.goods;
+    },
+    mounted() {
+        this.overflowScrol(this.$refs.scrolled);
+    }
 }
 
 </script>
@@ -69,6 +67,7 @@ export default {
 @images: "../../../base/images";
 .wrapper {
     section {
+        -webkit-overflow-scrolling: touch;
         .nav {
             padding: 0 24px;
             background: #fff;

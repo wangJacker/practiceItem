@@ -1,7 +1,7 @@
 <template>
     <swiper :options="swiperOption">
-        <swiper-slide v-for="(item,index) in imgArray" :key="item.key">
-            <img :src="item.src">
+        <swiper-slide v-for="(item,index) in imgArray" :key="item.id">
+            <img :src="item.img">
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -27,9 +27,7 @@ export default {
     props: {
         imgArray: {
             type: Array,
-            default: function() {
-                return [{ src: "http://static.ydcss.com/uploads/ydui/3.jpg", key: "1" }, { src: "http://static.ydcss.com/uploads/ydui/2.jpg", key: "2" }, { src: "http://static.ydcss.com/uploads/ydui/1.jpg", key: "3" }]
-            }
+            default: []
         }
     }
 }
