@@ -1,75 +1,142 @@
 <template>
-  <div class="wrapper">
-    <Header></Header>
-    <section>
-      <swiper :options="swiperOption">
-        <swiper-slide><img src="http://static.ydcss.com/uploads/ydui/1.jpg"></swiper-slide>
-        <swiper-slide><img src="http://static.ydcss.com/uploads/ydui/2.jpg"></swiper-slide>
-        <swiper-slide><img src="http://static.ydcss.com/uploads/ydui/3.jpg"></swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
-    </section>
-  </div>
+    <div class="wrapper">
+        <Header></Header>
+        <section>
+            <Carousel></Carousel>
+            <ul class="nav">
+                <li class="navItem">
+                    <a href="javascript:void(0)"><img src="../../../base/images/jd.png"></a>
+                    <span>京东</span>
+                </li>
+                <li class="navItem">
+                    <a href="javascript:void(0)"><img src="../../../base/images/yx.png"></a>
+                    <span>严选</span>
+                </li>
+                <li class="navItem">
+                    <a href="javascript:void(0)"><img src="../../../base/images/autotrophy.png"></a>
+                    <span>自营</span>
+                </li>
+                <li class="navItem">
+                    <a href="jaascript(0)"><img src="../../../base/images/coupon.png"></a>
+                    <span>优惠券</span>
+                </li>
+            </ul>
+            <div class="goods_container">
+                <h3 class="title">热销单品</h3>
+                <ul class="goods_list">
+                    <li class="goods_item">
+                        <img src="https://via.placeholder.com/145x145">
+                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
+                        <b class="price">399.00</b>
+                    </li>
+                    <li class="goods_item">
+                        <img src="https://via.placeholder.com/145x145">
+                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
+                        <b class="price">399.00</b>
+                    </li>
+                    <li class="goods_item">
+                        <img src="https://via.placeholder.com/145x145">
+                        <h3>超柔全棉超柔全风浴巾(单面纱单面绒)</h3>
+                        <b class="price">399.00</b>
+                    </li>
+                    <li class="goods_item">
+                        <img src="https://via.placeholder.com/145x145">
+                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
+                        <b class="price">399.00</b>
+                    </li>
+                    <li class="goods_item">
+                        <img src="https://via.placeholder.com/145x145">
+                        <h3>超柔全棉双层带帽披风浴巾(单面纱单面绒)超柔全棉双层带帽披风浴巾(单面纱单面绒)</h3>
+                        <b class="price">399.00</b>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <foot-bar :selectStore="true"></foot-bar>
+    </div>
 </template>
 <script type="text/javascript">
 import Header from "@/components/common/navbar";
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import Carousel from "@/components/common/carousel";
+import footBar from "@/components/common/footbar";
 export default {
-  name: "index",
-  components: { Header, swiper, swiperSlide },
-  data() {
-    return {
-      swiperOption: {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        loop: true,
-        autoplay: true
-      }
-    }
-  },
-  created() {
-    console.log(22222)
-  }
+    name: "index",
+    components: { Header, Carousel, footBar },
 }
 
 </script>
 <style lang="less">
+@images: "../../../base/images";
 .wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  section {
-    flex: 1;
-    padding: 0 12px;
-    .swiper-container {
-      .swiper-slide {
-        img {
-          display: block;
-          width: 100%;
-          height: 206px;
+    section {
+        .nav {
+            padding: 0 24px;
+            background: #fff;
+            height: 108px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+            .navItem {
+                a {
+                    display: block;
+                    img {
+                        display: block;
+                        width: 56px;
+                        height: 56px;
+                    }
+                }
+                span {
+                    text-align: center;
+                    font-size: @size14;
+                    color: #351009;
+                    display: block;
+                    width: 100%;
+                    line-height: 20px;
+                }
+            }
         }
-      }
-      .swiper-pagination-bullets {
-        bottom: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .swiper-pagination-bullet {
-          width: 24px;
-          height: 2px;
-          display: block;
-          background: #9F8D89;
+        .goods_container {
+            h3.title {
+                font-size: 15px;
+                color: 351009;
+                font-weight: 700;
+                margin: 24px 0 4px;
+            }
+            .goods_list {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .goods_item {
+                    width: 169px;
+                    height: 238px;
+                    box-sizing: border-box;
+                    padding: 12px 12px 16px;
+                    margin-top: 12px;
+                    background: #fff;
+                    img {
+                        display: block;
+                        width: 145px;
+                        height: 145px;
+                    }
+                    h3 {
+                        font-size: 12px;
+                        color: #9F8D89;
+                        line-height: 17px;
+                        height: 34px;
+                        overflow: hidden;
+                        margin-top: 16px;
+                    }
+                    .price {
+                        color: #AE2309;
+                        font-size: 14px;
+                        font-weight: 700;
+                        display: block;
+                    }
+                }
+            }
         }
-        .swiper-pagination-bullet-active {
-          background: #AE2309;
-        }
-      }
     }
-  }
 }
 
 </style>
