@@ -5,7 +5,7 @@
   "author": "wangye <wangjacker@163.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --host 172.17.130.26 --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"
   },

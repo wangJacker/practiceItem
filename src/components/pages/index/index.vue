@@ -2,37 +2,43 @@
     <div class="wrapper">
         <Header></Header>
         <section ref="scrolled">
-            <Carousel :imgArray="carrousel"></Carousel>
-            <ul class="nav">
-                <li class="navItem">
-                    <a href="javascript:void(0)"><img src="../../../base/images/jd.png"></a>
-                    <span>京东</span>
-                </li>
-                <li class="navItem">
-                    <a href="javascript:void(0)"><img src="../../../base/images/yx.png"></a>
-                    <span>严选</span>
-                </li>
-                <li class="navItem">
-                    <a href="javascript:void(0)"><img src="../../../base/images/autotrophy.png"></a>
-                    <span>自营</span>
-                </li>
-                <li class="navItem">
-                    <a href="jaascript(0)"><img src="../../../base/images/coupon.png"></a>
-                    <span>优惠券</span>
-                </li>
-            </ul>
-            <div class="goods_container">
-                <h3 class="title">热销单品</h3>
-                <ul class="goods_list">
-                    <template v-for="(item,index) in goodsArray">
-                        <li class="goods_item">
-                            <img :src="item.src">
-                            <h3>{{item.name}}</h3>
-                            <b class="price">{{item.price}}</b>
+            <scroll-load>
+                <div class="scrollContainer">
+                    <Carousel :imgArray="carrousel"></Carousel>
+                    <ul class="nav">
+                        <li class="navItem">
+                            <a href="javascript:void(0)"><img src="../../../base/images/jd.png"></a>
+                            <span>京东</span>
                         </li>
-                    </template>
-                </ul>
-            </div>
+                        <li class="navItem">
+                            <a href="javascript:void(0)"><img src="../../../base/images/yx.png"></a>
+                            <span>严选</span>
+                        </li>
+                        <li class="navItem">
+                            <a href="javascript:void(0)"><img src="../../../base/images/autotrophy.png"></a>
+                            <span>自营</span>
+                        </li>
+                        <li class="navItem">
+                            <a href="jaascript(0)"><img src="../../../base/images/coupon.png"></a>
+                            <span>优惠券</span>
+                        </li>
+                    </ul>
+                    <div class="goods_container">
+                        <div>
+                            <h3 class="title">热销单品</h3>
+                            <ul class="goods_list">
+                                <template v-for="(item,index) in goodsArray">
+                                    <li class="goods_item">
+                                        <img :src="item.src">
+                                        <h3>{{item.name}}</h3>
+                                        <b class="price">{{item.price}}</b>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </scroll-load>
         </section>
         <foot-bar :selectStore="true"></foot-bar>
     </div>
@@ -41,10 +47,11 @@
 import Header from "@/components/common/navbar";
 import Carousel from "@/components/common/carousel";
 import footBar from "@/components/common/footbar";
+import scrollLoad from "@/components/common/scroll-load";
 import { carrouselData, goodsData } from "@/mock/mockData";
 export default {
     name: "index",
-    components: { Header, Carousel, footBar },
+    components: { Header, Carousel, footBar, scrollLoad },
     data() {
         return {
             // 轮播图的信息
@@ -58,7 +65,12 @@ export default {
         this.goodsArray = goodsData.goods;
     },
     mounted() {
-        this.overflowScrol(this.$refs.scrolled);
+        // this.overflowScrol(this.$refs.scrolled);
+        // this.$nextTick = function() {
+        //     let scroll = new Bscroll({
+
+        //     })
+        // }
     }
 }
 
@@ -67,7 +79,6 @@ export default {
 @images: "../../../base/images";
 .wrapper {
     section {
-        -webkit-overflow-scrolling: touch;
         .nav {
             padding: 0 24px;
             background: #fff;

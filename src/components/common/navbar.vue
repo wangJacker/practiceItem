@@ -1,7 +1,7 @@
 <template>
   <header>
     <a href="javascript:void(0)" class="goBack"></a>
-    <h3 v-wechat-title="$route.meta.title">{{$route.meta.title}}</h3>
+    <h3>{{$route.meta.title}}</h3>
     <a href="javascript:void(0)" class="search"></a>
   </header>
 </template>

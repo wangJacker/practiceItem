@@ -7,6 +7,7 @@ const Classify = () =>import ("@/components/pages/classify/classify");
 Vue.use(Router);
 Vue.use(VueChatTitle);
 export default new Router({
+    mode: 'history',
     routes: [{
             path: '/',
             name: 'Index',

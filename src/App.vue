@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" v-wechat-title="$route.meta.title" img-set="@/base/images/favicon.ico">
         <router-view></router-view>
     </div>
 </template>
@@ -28,7 +28,7 @@ body {
         section {
             flex: 1;
             padding: 0 12px;
-            overflow: auto;
+            overflow: hidden;
             padding-bottom: 20px;
         }
     }

@@ -35,6 +35,7 @@ export default {
 </script>
 <style lang="less">
 .swiper-container {
+    height: 206px;
     .swiper-slide {
         img {
             display: block;

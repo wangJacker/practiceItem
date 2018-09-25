@@ -49,7 +49,7 @@ export default {
             });
             this.scrollContainer = this.$refs.scrolls.clientHeight;
             this.maxScrollY = this.scroll.maxScrollY;
-            console.log(data.foods)
+            console.log(this.$dialog)
         })
     },
     computed: {
