@@ -33,31 +33,54 @@ export default {
             default: null
         },
         // 开启滚动条
-        scrollbar:{
-            type:Boolean,
-            default:false
+        scrollbar: {
+            type: Boolean,
+            default: false
+        },
+        // 开启下拉加载刷新事件
+        pullDown: {
+            type: Boolean,
+            default: false
+        },
+        //开启上啦加载更多
+        pullUp: {
+            type: Boolean,
+            default: false
         }
     },
     mounted() {
         this.$nextTick(() => {
-            console.log(this.init())
+            this.init();
+            // console.log(this.init())
+            // this.pullUp && this.scroll.on("")
+            // this.scroll.on("scroll", function(){
+            //     console.log(2222989)
+            // })
+            this.scroll.on("pullingUp", function(){
+                console.log(2222989)
+            })
         })
     },
     methods: {
         init() {
             this.scroll = new Bscroll(this.$refs.wrapper, {
                 probeType: this.probeType,
-                scrollbar:this.scrollbar
-            })
-            console.log(Bscroll)
+                scrollbar: this.scrollbar,
+                pullUpLoad:true
+            });
+            // 是否开启下拉加载更多事件
+            this.pullUp && this.$emit("scrollMore");
+            // 是否开启下拉刷新的事件
+            this.pullDown && this.$emit("scrollRefresh");
+
         }
     }
 }
 
 </script>
 <style scope lang="less">
-    .wrappers{
-        height: 100%;
-    }
+.wrappers {
+    height: 100%;
+}
 
 </style>

@@ -22,7 +22,7 @@ export const data = Mock.mock({
 export const carrouselData = Mock.mock({
     'imgData|5': [{
         "img": "@image('302x206',#b7ef7c)",
-        "id|+1":0
+        "id|+1": 0
     }]
 })
 export const goodsData = Mock.mock({
@@ -31,4 +31,18 @@ export const goodsData = Mock.mock({
         "src": "@image('145x145',#b7ef7c)",
         "price|100-400.1-2": 100,
     }]
+})
+export const listData = Mock.mock({
+    "list|20": [{
+        'name': "@ctitle(8,12)"
+    }]
+})
+Mock.mock("/gets/listData", "get", {
+    "list|20": [{
+        'name': "@ctitle(8,12)"
+    }]
+
+})
+Mock.setup({
+    timeout: 4000
 })

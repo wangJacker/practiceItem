@@ -14,8 +14,10 @@
                 </router-link>
             </li>
             <li :class="{selected:selectCarts}">
-                <span class="carts"></span>
-                <b>购物车</b>
+                <router-link to='/carts'>
+                    <span class="carts"></span>
+                    <b>购物车</b>
+                </router-link>
             </li>
             <li :class="{selected:selectCenter}">
                 <span class="myCenter"></span>

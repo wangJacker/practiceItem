@@ -2,7 +2,7 @@
     <div class="wrapper">
         <Header></Header>
         <section ref="scrolled">
-            <scroll-load>
+            <scroll-load :pullUp="true" @scrollMore="scrollMore">
                 <div class="scrollContainer">
                     <Carousel :imgArray="carrousel"></Carousel>
                     <ul class="nav">
@@ -65,12 +65,12 @@ export default {
         this.goodsArray = goodsData.goods;
     },
     mounted() {
-        // this.overflowScrol(this.$refs.scrolled);
-        // this.$nextTick = function() {
-        //     let scroll = new Bscroll({
-
-        //     })
-        // }
+        console.log(this.$i18n)
+    },
+    methods: {
+        scrollMore() {
+            // console.log(222222)
+        }
     }
 }
 
